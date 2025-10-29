@@ -1,19 +1,21 @@
-div {
-  background-color: blue;
-  float: left;
-  margin-right: 20px;
-  height: 100px;
-  width: 150px;
+.list0 {
+  color: red;
 }
-
-p {
-  clear: both;
-  height: 100px;
-  width: 100px;
-  background-color: aqua;
+.list1 {
+  color: blue;
 }
-
-img {
-  position: relative;
-  left: 10px;
+.list2 {
+  color: yellow;
+}
+.list3 {
+  color: green;
+}
+.list4 {
+  color: gray;
+}
+.list5 {
+  color: pink;
+}
+.over {
+  color: red;
 }

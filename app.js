@@ -1,39 +1,43 @@
 $(function(){
-    //.click()
-    //Kích hoạt sự kiện click trên thành phần ràng buộc xử lý một sự kiện 'click' trong javascript
-    //Ứng dụng: thực hiện hành động gì đó khi click chuột vào thành thành phần
-    //.click()
-    //.click(function(){})
+    //.css()
+    //Thêm 1 hoặc nhiều style
+    //.css('thuộc tính','giá trị')
+    //.css('thuộc tính 1':'giá trị 1', 'thuộc tính 2':'giá trị 2', ... '':'')
 
-    //.hover()
-    //Kết hợp xử lý 2 sự kiện: di chuột vào và rời chuột ra khỏi thành phần (mouseenter/mouseleave)
-    //Ứng dụng: thực hiện thành động gì đó khi di hover chuột
-    //.hover(xử lý mouse enter, xử lý mouse leave)\
-    $('p').hover(function () {
-            // over
-            $(this).css('background-color', 'green')
-        }, function () {
-            // out
-            $(this).css('background-color', 'aqua')
-        }
-    );
-
-    //.bind()
-    //Sử dụng để đính kèm xử lý thêm sự kiện cho thành phần
-    //Ứng dụng: sử dụng kết hợp giữa 2 sự kiện load và resize, như khi load window hay resize window thì nội dung sẽ được xử lý
-    //.bind('sự kiện', function)
-    $('div.test').bind('click', function(){
-        $('span.huhu').text('Đã click')
-    })
-    //.bind('sự kiện 1, sự kiện 2, sự kiện ...', function(){})
-    $('div.bindn').bind('click dbclick', function(){
-        $('span.hehe').text('N sự kiện')
-    })
-
-    //.resize()
-    //Ràng buộc một xử lý sự kiện resize hoặc kích hoạt sự kiện trên thành phần
-    //.resize(function(){...})
-    $(window).resize(function () { 
-        $('span.resize').html($(window).width())
+    //.each()
+    //Thực hiện 1 hành động cho mỗi phần tử, để làm điều này ta cần sử dụng phương thức $(this)
+    $('li').each(function (index, element) {
+        // element == this
+        $(this).click(function () {
+             $(this).addClass("list"+index);
+        })
     });
+
+    $('li').each(function (index, element) {
+        // element == this
+        $(this).hover(function () {
+                // over
+                $(this).addClass('over');
+            }, function () {
+                // out
+                $(this).removeClass('over');
+            }
+        );
+    });
+
+    //.find()
+    //Giúp tìm thành phần trong cha
+    //.find(Bộ chọn)
+    $('ul').find('.test').css('color','red');
+    //.find(jquery object)
+    $('ul').find($('p.test')).css('color','yellow');
+
+    //.first()
+    //Xác định phần đầu tiên trong thành phần dc chọn
+    $('li').first().css('background-color', 'blue')
+
+    //.last(): cuối
+    //.length: độ dài
+    var n = $('li').length;
+    $('span').text(n);
 });
